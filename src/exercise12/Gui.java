@@ -21,7 +21,7 @@ public class Gui extends Application {
     private Pane initContent() {
         Pane pane = new Pane();
         pane.setPrefSize(600, 400);
-        this.drawShapes(pane,30,300,243, 5);
+        this.drawShapes(pane,30,300,243, 1);
         return pane;
     }
 
@@ -29,9 +29,6 @@ public class Gui extends Application {
 
         drawTriangle(pane,x,y,h);
         drawInTriangle(pane,x,y,h,howMany);
-
-
-
     }
 
     private void drawTriangle(Pane pane, double x, double y, double h){
