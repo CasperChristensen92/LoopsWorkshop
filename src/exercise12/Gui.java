@@ -21,14 +21,26 @@ public class Gui extends Application {
     private Pane initContent() {
         Pane pane = new Pane();
         pane.setPrefSize(400, 400);
-        this.drawShapes(pane,100,300,128, 2);
+        this.drawShapes(pane,100,300,81);
         return pane;
     }
 
-    private void drawShapes(Pane pane,double x,double y, double h, int howMany){
+    private void drawShapes(Pane pane,double x,double y, double h){
 
         drawTriangle(pane,x,y,h);
-        drawInTriangle(pane,x,y,h,howMany);
+        drawInTriangle(pane,x,y,h);
+        double x1= x;
+        double y1= y;
+        double x2= x+h-h/3;
+        double y2= y-h+h/3;
+        double x3= x+2*h-2*h/3;
+        double y3= y;
+        for (int i = 0; i < 2; i++) {
+            h= h/3;
+
+        }
+        drawInTriangle(pane,x,y,h/3);
+
 
 
     }
@@ -41,12 +53,25 @@ public class Gui extends Application {
         pane.getChildren().add(line2);
         pane.getChildren().add(line3);
     }
-    private void drawInTriangle(Pane pane, double x, double y, double h,int howMany){
-        double hNew=h/4;
+    private void drawInTriangle(Pane pane, double x, double y, double h){
+        double hNew=h/3;
         for (int j = 0; j < 2; j++) {
             drawTriangle(pane,x,y,hNew);
             drawTriangle(pane,x+h-hNew,y-h+hNew,hNew);
             drawTriangle(pane,x+2*h-2*hNew,y,hNew);
+        }
+    }
+
+    private void drawInTriangleMany(Pane pane, double x, double y, double h, int howMany){
+        double x1= x;
+        double y1= y;
+        double x2= x+h-h/3;
+        double y2= y-h+h/3;
+        double x3= x+2*h-2*h/3;
+        double y3= y;
+        double hNew = h/3;
+        for (int i = 0; i < howMany-1; i++) {
+
         }
     }
 
