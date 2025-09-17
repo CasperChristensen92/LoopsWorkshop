@@ -20,26 +20,15 @@ public class Gui extends Application {
 
     private Pane initContent() {
         Pane pane = new Pane();
-        pane.setPrefSize(400, 400);
-        this.drawShapes(pane,100,300,81);
+        pane.setPrefSize(600, 400);
+        this.drawShapes(pane,30,300,243, 5);
         return pane;
     }
 
-    private void drawShapes(Pane pane,double x,double y, double h){
+    private void drawShapes(Pane pane,double x,double y, double h, double howMany){
 
         drawTriangle(pane,x,y,h);
-        drawInTriangle(pane,x,y,h);
-        double x1= x;
-        double y1= y;
-        double x2= x+h-h/3;
-        double y2= y-h+h/3;
-        double x3= x+2*h-2*h/3;
-        double y3= y;
-        for (int i = 0; i < 2; i++) {
-            h= h/3;
-
-        }
-        drawInTriangle(pane,x,y,h/3);
+        drawInTriangle(pane,x,y,h,howMany);
 
 
 
@@ -53,28 +42,20 @@ public class Gui extends Application {
         pane.getChildren().add(line2);
         pane.getChildren().add(line3);
     }
-    private void drawInTriangle(Pane pane, double x, double y, double h){
-        double hNew=h/3;
-        for (int j = 0; j < 2; j++) {
-            drawTriangle(pane,x,y,hNew);
-            drawTriangle(pane,x+h-hNew,y-h+hNew,hNew);
-            drawTriangle(pane,x+2*h-2*hNew,y,hNew);
+    private void drawInTriangle(Pane pane, double x, double y, double h, double howMany) {
+        if (howMany > 0) {
+            double hNew = h / 3;
+            double x2 = x + h - hNew;
+            double y2 = y - h + hNew;
+            double x3 = x + 2 * h - 2 * hNew;
+            drawTriangle(pane, x, y, hNew);
+            drawTriangle(pane, x2, y2, hNew);
+            drawTriangle(pane, x3, y, hNew);
+            drawInTriangle(pane,x,y,hNew,howMany-1);
+            drawInTriangle(pane,x2,y2,hNew,howMany-1);
+            drawInTriangle(pane,x3,y,hNew,howMany-1);
         }
     }
-
-    private void drawInTriangleMany(Pane pane, double x, double y, double h, int howMany){
-        double x1= x;
-        double y1= y;
-        double x2= x+h-h/3;
-        double y2= y-h+h/3;
-        double x3= x+2*h-2*h/3;
-        double y3= y;
-        double hNew = h/3;
-        for (int i = 0; i < howMany-1; i++) {
-
-        }
-    }
-
 }
 
 
