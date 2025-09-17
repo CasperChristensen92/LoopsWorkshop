@@ -27,6 +27,9 @@ public class Gui extends Application {
         //this.exercise3a(pane);
         //this.exercise3b(pane);
         //this.exercise3c(pane);
+        //this.exercise8(pane);
+        //this.exercise8(pane);
+        this.exercise9(pane);
         return pane;
     }
 
@@ -102,6 +105,30 @@ public class Gui extends Application {
             y1 += 40;
             x1 -= 20;
             x2 += 20;
+        }
+    }
+    private void exercise8 (Pane pane){
+        int x1 = 16;
+        int y1 = 80;
+        int y2 = 160;
+        for (int i = 0; i < 10; i++) {
+            Line line = new Line(x1,y1,x1,y2);
+            pane.getChildren().add(line);
+            x1 += 16;
+            y2-=12;
+            y1 -=4;
+        }
+    }
+    private void exercise9 (Pane pane){
+        double x1 = 180;
+        double y1 = 100-x1/5;
+        double y2 = 100+x1/2;
+        while (x1>10) {
+            Line line = new Line(x1,y1,x1,y2);
+            pane.getChildren().add(line);
+            x1 = x1*0.75;
+            y1 = 100-x1/5;
+            y2 = 100+x1/2;
         }
     }
 
