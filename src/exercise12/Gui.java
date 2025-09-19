@@ -21,7 +21,7 @@ public class Gui extends Application {
     private Pane initContent() {
         Pane pane = new Pane();
         pane.setPrefSize(600, 400);
-        this.drawShapes(pane,30,300,243, 1);
+        this.drawShapes(pane,30,300,243, 3);
         return pane;
     }
 
